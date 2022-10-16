@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Main.css";
+import CartContext from "../CONTEXT/CartContext";
 
 const Main = () => {
+  const a = useContext(CartContext);
+
+  // a.items.push(1233)
+  // console.log(a.items);
   const productsArr = [
     {
       id: 1,
@@ -47,17 +52,34 @@ const Main = () => {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
-  const product = productsArr.map((prod) => {
-    return (
-      <div>
-        <h2>{prod.title}</h2>
-        <img src={prod.imageUrl} alt=" " />
-        <h3>{prod.price}</h3>
-        <button className="add">Add To Cart</button>
-      </div>
-    );
-  });
-  return <div className="product">{product}</div>;
+
+  const elementsAddInCart = (prod) => {
+    const checkId = a.items.filter((item) => item.id === prod.id).length;
+
+    if (checkId) {
+      alert("Ptoduct is Already Added");
+    } else {
+      a.totalElements = a.totalElements + 1;
+      return a.items.push(prod);
+    }
+  };
+
+  return (
+    <div>
+      {productsArr.map((prod) => {
+        return (
+          <div>
+            <h2>{prod.title}</h2>
+            <img src={prod.imageUrl} alt=" " />
+            <h3>{prod.price}</h3>
+            <button className="add" onClick={() => elementsAddInCart(prod)}>
+              Add To Cart
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Main;

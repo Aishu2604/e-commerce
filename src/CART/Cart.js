@@ -1,69 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Cart.css";
+import CartContext from "../CONTEXT/CartContext";
 
 const Cart = (props) => {
-  const cartElements = [
-    {
-      id: 1,
+  const test = useContext(CartContext);
+  console.log(test);
 
-      title: "Colors",
-
-      price: 100,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-      quantity: 2,
-    },
-
-    {
-      id: 2,
-      title: "Black and white Colors",
-
-      price: 50,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-      quantity: 3,
-    },
-
-    {
-      id: 3,
-      title: "Yellow and Black Colors",
-
-      price: 70,
-
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-      quantity: 1,
-    },
-  ];
-
-  let [cartItems, setCartItems] = useState(cartElements);
+  let [items, setCartItems] = useState(test.items);
 
   if (!props.open) {
     return;
   }
-  function removeItem (removeCartItem){
-    setCartItems(
-      () =>
-        (cartItems = cartItems.filter((key) => key.id !== removeCartItem.id))
-    );
+  function removeItem(item) {
+    setCartItems(() => (items = items.filter((key) => key.id !== item.id)));
+
+    test.items = items;
+    test.totalElements = test.totalElements + 1;
+  }
+
+  console.log(test.items);
+
+  const purchaseButton = () => {
+    if (test.items.length !== 0) {
+      setCartItems(() => (test.items = []));
+      test.items = 0;
+      alert("Thank you for Shoping with us");
+    } else {
+      alert("Please add items to the cart !");
+    }
   };
 
   return (
     <div className="mainCart">
       <h1> cart </h1>
-      <button onClick={props.close}> * </button>
+      <button onClick={props.close}> X </button>
       <div className="cart">
         <h3> Item</h3>
         <h2> Price</h2>
         <h3> Quantity </h3>
       </div>
       <div className="cartItem">
-        {cartItems.map((item) => {
+        {items.map((item) => {
           return (
             <div className="mapItem">
               <div className="image">
@@ -74,14 +51,15 @@ const Cart = (props) => {
                 <h3>{item.price}</h3>
               </div>
               <div className="input">
-                <input type="number" />
+                <input type="number" min="1" max="7" value="1" />
                 <button onClick={() => removeItem(item)}>REMOVE</button>
               </div>
+              <br />
             </div>
           );
         })}
       </div>
-      <button> PURCHASE </button>
+      <button onClick={purchaseButton}> PURCHASE </button>
     </div>
   );
 };
