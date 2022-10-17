@@ -15,7 +15,7 @@ const Cart = (props) => {
     setCartItems(() => (items = items.filter((key) => key.id !== item.id)));
 
     test.items = items;
-    test.totalElements = test.totalElements + 1;
+    test.totalElements = test.totalElements - 1;
   }
 
   console.log(test.items);
