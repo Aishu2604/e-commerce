@@ -1,0 +1,15 @@
+.upperPart {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: aliceblue;
+}
+
+.lowerPart {
+    text-align: center;
+    background-color: gray;
+    color: aliceblue;
+    height: 150px;
+    font-size: 30px;
+    margin: -40px;
+}

@@ -68,7 +68,7 @@ const Main = () => {
     <div>
       {productsArr.map((prod) => {
         return (
-          <div>
+          <div className="product">
             <h2>{prod.title}</h2>
             <img src={prod.imageUrl} alt=" " />
             <h3>{prod.price}</h3>
