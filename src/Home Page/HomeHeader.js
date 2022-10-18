@@ -8,7 +8,7 @@ const HomeHeader = () => {
       <div>
         <div className="upperPart">
           <Link to="/Home">HOME</Link>
-          <Link to="">STORE</Link>
+          <Link to="/">STORE</Link>
           <Link to="/About">ABOUT</Link>
         </div>
         <div className="lowerPart">

@@ -7,9 +7,9 @@ const AboutHeader = () => {
     <React.Fragment>
       <div>
         <div className="upperPart">
-          <Link to='/Home'>HOME</Link>
-          <Link to=''>STORE</Link>
-          <Link to='/About'>ABOUT</Link>
+          <Link to="/Home">HOME</Link>
+          <Link to="/">STORE</Link>
+          <Link to="/About">ABOUT</Link>
         </div>
         <div className="lowerPart">
           <h1>THE GENERIC</h1>
