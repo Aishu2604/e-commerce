@@ -12,6 +12,7 @@ import HomeFooter from "./Home Page/HomeFooter";
 import ContactFooter from "./Contact Us/ContactFooter";
 import ContactHeader from "./Contact Us/ContactHeader";
 import ContactMain from "./Contact Us/ContactMain";
+import ProductDetail from "./Product Detail/ProductDetail";
 function App() {
 
   async function addQuerryHandler(querry) {
@@ -34,6 +35,10 @@ function App() {
         <Header />
         <Main />
         <Footer />
+      </Route>
+
+      <Route path="/ /:id">
+        <ProductDetail />
       </Route>
 
       <Route path="/About">

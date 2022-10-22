@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import "./Main.css";
-import CartContext from "../CONTEXT/CartContext";
+import { useParams } from "react-router-dom";
+import "./ProductDetail.css";
 
-const Main = () => {
-  const a = useContext(CartContext);
+const ProductDetail = () => {
+  const params = useParams();
+  console.log(params.id);
 
-  // a.items.push(1233)
-  // console.log(a.items);
   const productsArr = [
     {
       id: 1,
@@ -54,30 +51,21 @@ const Main = () => {
     },
   ];
 
-  const elementsAddInCart = (prod) => {
-    const checkId = a.items.filter((item) => item.id === prod.id).length;
-
-    if (checkId) {
-      alert("Ptoduct is Already Added");
-    } else {
-      a.totalElements = a.totalElements + 1;
-      return a.items.push(prod);
-    }
-  };
-
   return (
     <div>
       {productsArr.map((prod) => {
         return (
           <div className="product">
+            <h3>{prod.id}</h3>
             <h2>{prod.title}</h2>
-            <Link to='/ /id'>
             <img src={prod.imageUrl} alt=" " />
-            </Link>
             <h3>{prod.price}</h3>
-            <button className="add" onClick={() => elementsAddInCart(prod)}>
-              Add To Cart
-            </button>
+            <div className="foot">
+              <h1>REVIEW</h1>
+              <p>
+                This product is one of the best product present in the WORLD...!
+              </p>
+            </div>
           </div>
         );
       })}
@@ -85,4 +73,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default ProductDetail;
