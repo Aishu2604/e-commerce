@@ -10,6 +10,7 @@ const HomeHeader = () => {
           <Link to="/Home">HOME</Link>
           <Link to="/">STORE</Link>
           <Link to="/About">ABOUT</Link>
+          <Link to="/Contact Us">Contact Us</Link>
         </div>
         <div className="lowerPart">
           <h1>THE GENERIC</h1>

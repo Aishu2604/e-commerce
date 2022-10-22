@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./AboutHeader.css";
+import "./ContactHeader.css";
 
-const AboutHeader = () => {
+const ContactHeader = () => {
   return (
     <React.Fragment>
       <div>
@@ -20,4 +20,4 @@ const AboutHeader = () => {
   );
 };
 
-export default AboutHeader;
+export default ContactHeader;

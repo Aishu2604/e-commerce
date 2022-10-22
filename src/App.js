@@ -9,7 +9,25 @@ import AboutFooter from "./About Page/AboutFooter";
 import HomeMain from "./Home Page/HomeMain";
 import HomeHeader from "./Home Page/HomeHeader";
 import HomeFooter from "./Home Page/HomeFooter";
+import ContactFooter from "./Contact Us/ContactFooter";
+import ContactHeader from "./Contact Us/ContactHeader";
+import ContactMain from "./Contact Us/ContactMain";
 function App() {
+
+  async function addQuerryHandler(querry) {
+    const response = await fetch(
+      "https://react-http-69239-default-rtdb.firebaseio.com/querry.json",
+      {
+        method: "POST",
+        body: JSON.stringify(querry),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+  }
   return (
     <div>
       <Route path="/" exact>
@@ -27,6 +45,11 @@ function App() {
         <HomeHeader />
         <HomeMain />
         <HomeFooter />
+      </Route>
+      <Route path="/Contact Us">
+        <ContactHeader />
+        <ContactMain onAddQuerry={addQuerryHandler}/>
+        <ContactFooter />
       </Route>
     </div>
   );
