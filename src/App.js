@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Header from "./Layout/Header";
 import Main from "./Layout/Main";
 import Footer from "./Layout/Footer";
@@ -48,26 +48,35 @@ function App() {
         <ProductDetail />
       </Route>
 
-      <Route path="/About">
-        <AboutHeader />
-        <AboutMain />
-        <AboutFooter />
-      </Route>
-      <Route path="/Home">
-        <HomeHeader />
-        <HomeMain />
-        <HomeFooter />
-      </Route>
-      <Route path="/Contact Us">
-        <ContactHeader />
-        <ContactMain onAddQuerry={addQuerryHandler} />
-        <ContactFooter />
-      </Route>
+      {isLoggedIn && (
+        <Route path="/About">
+          <AboutHeader />
+          <AboutMain />
+          <AboutFooter />
+        </Route>
+      )}
+      {isLoggedIn && (
+        <Route path="/Home">
+          <HomeHeader />
+          <HomeMain />
+          <HomeFooter />
+        </Route>
+      )}
+      {isLoggedIn && (
+        <Route path="/Contact Us">
+          <ContactHeader />
+          <ContactMain onAddQuerry={addQuerryHandler} />
+          <ContactFooter />
+        </Route>
+      )}
       {!isLoggedIn && (
         <Route path="/Login">
           <Login />
         </Route>
       )}
+      <Route path="*">
+        <Redirect to="/Login" />
+      </Route>
     </div>
   );
 }
