@@ -13,7 +13,12 @@ import ContactFooter from "./Contact Us/ContactFooter";
 import ContactHeader from "./Contact Us/ContactHeader";
 import ContactMain from "./Contact Us/ContactMain";
 import ProductDetail from "./Product Detail/ProductDetail";
+import Login from "./LOGIN/Login";
+import AuthContext from "./LOGIN CONTEXT/auth-context";
+import { useContext } from "react";
 function App() {
+  const AuthCtx = useContext(AuthContext);
+  const isLoggedIn = AuthCtx.isLoggedIn;
 
   async function addQuerryHandler(querry) {
     const response = await fetch(
@@ -31,11 +36,13 @@ function App() {
   }
   return (
     <div>
-      <Route path="/" exact>
-        <Header />
-        <Main />
-        <Footer />
-      </Route>
+      {isLoggedIn && (
+        <Route path="/" exact>
+          <Header />
+          <Main />
+          <Footer />
+        </Route>
+      )}
 
       <Route path="/ /:id">
         <ProductDetail />
@@ -53,9 +60,14 @@ function App() {
       </Route>
       <Route path="/Contact Us">
         <ContactHeader />
-        <ContactMain onAddQuerry={addQuerryHandler}/>
+        <ContactMain onAddQuerry={addQuerryHandler} />
         <ContactFooter />
       </Route>
+      {!isLoggedIn && (
+        <Route path="/Login">
+          <Login />
+        </Route>
+      )}
     </div>
   );
 }

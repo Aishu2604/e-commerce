@@ -12,6 +12,7 @@ const Header = () => {
           <Link to="/">STORE</Link>
           <Link to="/About">ABOUT</Link>
           <Link to="/Contact Us">Contact Us</Link>
+          <Link to="/Login">Login</Link>
           <CartButton />
         </div>
         <div className="lowerPart">
