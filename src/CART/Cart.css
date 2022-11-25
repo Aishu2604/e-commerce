@@ -1,44 +1,43 @@
 .cart {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .cartItem {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: black;
-    justify-content: space-around;
-  }
-  .header {
-    display: flex;
-    justify-content: space-around;
-  }
-  .mainCart {
-    background-color: white;
-    color: black;
-    height: 100%;
-    width: 400px;
-  }
-  
-  .mapItem {
-    display: flex;
-  }
-  
-  .image {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input {
-    display: flex;
-    justify-content: last baseline;
-    width: 20px;
-    height: 20px;
-    align-content: flex-end;
-  }
-  
-  .price {
-    align-content: center;
-  }
-  
+  display: flex;
+  justify-content: space-around;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  justify-content: space-around;
+}
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+.mainCart {
+  background-color: white;
+  color: black;
+  height: 100%;
+  width: 400px;
+}
+
+.mapItem {
+  display: flex;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+  justify-content: last baseline;
+  width: 20px;
+  height: 20px;
+  align-content: flex-end;
+}
+
+.price {
+  align-content: center;
+}

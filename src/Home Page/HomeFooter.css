@@ -1,15 +1,14 @@
 .footer {
-    background-color: aqua;
-    display: flex;
-    justify-content: space-between;
-    /* align-content: center; */
-    color: white;
-    font-size: 200%;
-  }
-  
-  .footer-icon {
-    display: flex;
-    /* align-content: center; */
-    justify-content: space-between;
-  }
-  
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  /* align-content: center; */
+  color: white;
+  font-size: 200%;
+}
+
+.footer-icon {
+  display: flex;
+  /* align-content: center; */
+  justify-content: space-between;
+}

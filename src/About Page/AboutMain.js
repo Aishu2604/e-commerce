@@ -6,7 +6,13 @@ const AboutMain = () => {
   return (
     <div>
       <h1 className="head"> ABOUT</h1>
-      <img src={musician} className="image" alt="A Superstar" width="300" height="300" />
+      <img
+        src={musician}
+        className="image"
+        alt="A Superstar"
+        width="300"
+        height="300"
+      />
       <p className="para">
         Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
         sorrows, hates no prosecutors will unfold in the enduring of which were

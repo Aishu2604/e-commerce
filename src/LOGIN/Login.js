@@ -1,16 +1,15 @@
 import React, { useRef, useContext } from "react";
 import AuthContext from "../LOGIN CONTEXT/auth-context";
-import { useHistory } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 import classes from "./Login.module.css";
 
 const Login = () => {
-    const history = useHistory();
+  const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
- const AuthCtx =  useContext(AuthContext)
+  const AuthCtx = useContext(AuthContext);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -19,7 +18,7 @@ const Login = () => {
     const enteredPassword = passwordInputRef.current.value;
 
     fetch(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCR9dVl2fTMczFit7JPpmsJqrOM1_mStsY',
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCR9dVl2fTMczFit7JPpmsJqrOM1_mStsY",
       {
         method: "POST",
         body: JSON.stringify({
@@ -31,26 +30,25 @@ const Login = () => {
           "Content-Type": "application/json",
         },
       }
-    ).then((res) => {
-
+    )
+      .then((res) => {
         if (res.ok) {
           return res.json();
         } else {
           return res.json().then((data) => {
             let errorMessage = "Authentication failed";
 
-
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
-          AuthCtx.login(data.idToken);
-          history.replace('/')
-      }).catch((err) => {
-          alert(err.message)
+        AuthCtx.login(data.idToken);
+        history.replace("/");
       })
-
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   return (

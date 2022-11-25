@@ -5,10 +5,10 @@
 }
 
 .image {
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .para {
-    text-align: center;
+  text-align: center;
 }

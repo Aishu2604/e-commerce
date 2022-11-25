@@ -1,5 +1,5 @@
 import React from "react";
-import './ContactFooter.css';
+import "./ContactFooter.css";
 
 const ContactFooter = () => {
   return (

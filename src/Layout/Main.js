@@ -71,8 +71,8 @@ const Main = () => {
         return (
           <div className="product">
             <h2>{prod.title}</h2>
-            <Link to='/ /id'>
-            <img src={prod.imageUrl} alt=" " />
+            <Link to="/ /id">
+              <img src={prod.imageUrl} alt=" " />
             </Link>
             <h3>{prod.price}</h3>
             <button className="add" onClick={() => elementsAddInCart(prod)}>
